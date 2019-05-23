@@ -892,4 +892,27 @@ describe('List', () => {
       }
     });
   });
+
+  describe('forAll when', () => {
+    it('All element is true condition, return true', () => {
+      const evenList = List<number>([2, 4, 6, 8, 10]);
+      const allAreEven = evenList.forAll(elem => elem % 2 === 0);
+
+      expect(allAreEven).toBe(true);
+    });
+
+    it('Even one of element is false, return false', () => {
+      const evenList = List<number>([2, 4, 5, 8, 10]);
+      const allAreEven = evenList.forAll(elem => elem % 2 === 0);
+
+      expect(allAreEven).toBe(false);
+    });
+
+    it('All element is false condition, return false', () => {
+      const evenList = List<number>([1, 3, 5, 7, 9]);
+      const allAreEven = evenList.forAll(elem => elem % 2 === 0);
+
+      expect(allAreEven).toBe(false);
+    });
+  });
 });

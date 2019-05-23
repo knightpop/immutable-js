@@ -195,6 +195,16 @@ export class List extends IndexedCollection {
     );
   }
 
+  forAll(condition) {
+    for (let idx = 0; idx < this.size; idx++) {
+      if (condition(this.get(idx)) === false) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   __iterator(type, reverse) {
     let index = reverse ? this.size : 0;
     const values = iterateList(this, reverse);

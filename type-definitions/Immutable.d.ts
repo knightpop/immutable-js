@@ -659,6 +659,20 @@ declare module Immutable {
       zipper: (...any: Array<unknown>) => Z,
       ...collections: Array<Collection<unknown, unknown>>
     ): List<Z>;
+
+    /**
+     * Returns a result of all element valuated by condition
+     *
+     * <!-- runkit:activate
+     *      { "preamble": "const { List } = require('immutable');" }
+     * -->
+     * ```js
+     * const a = List([ 4, 5, 6 ]);
+     * const result = a.forAll((element) => element % 2 === 0);
+     * // true
+     * ```
+     */
+    forAll(condition: (elem: T) => boolean): boolean;
   }
 
 
